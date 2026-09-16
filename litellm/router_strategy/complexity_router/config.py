@@ -1279,6 +1279,16 @@ class ComplexityRouterConfig(BaseModel):
             "drift plus the response tokens."
         ),
     )
+    context_window_compression_model: str | None = Field(
+        default=None,
+        min_length=1,
+        description=(
+            "Optional ordinary model group used to summarize eligible text history after this router selects "
+            "a concrete deployment whose context window is too small. Compression keeps the selected deployment "
+            "and is disabled when unset. Tool protocol history is rejected when compression is needed. Responses "
+            "requests with previous_response_id are unsupported while compression is configured."
+        ),
+    )
     modality_routing: bool = Field(
         default=False,
         description=(

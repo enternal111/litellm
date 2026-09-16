@@ -35906,6 +35906,11 @@ export interface components {
              */
             code_keywords?: string[] | null;
             /**
+             * Context Window Compression Model
+             * @description Optional ordinary model group used to summarize eligible text history after this router selects a concrete deployment whose context window is too small. Compression keeps the selected deployment and is disabled when unset. Tool protocol history is rejected when compression is needed. Responses requests with previous_response_id are unsupported while compression is configured.
+             */
+            context_window_compression_model?: string | null;
+            /**
              * Context Window Escalation Buffer
              * @description Fraction of a model's declared context window the estimated prompt must fit within. The token count is an estimate, so fitting against the full window would dispatch prompts that the provider's own tokenizer then rejects; 0.95 leaves room for that drift plus the response tokens.
              * @default 0.95
